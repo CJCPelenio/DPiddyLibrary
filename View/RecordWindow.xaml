@@ -84,7 +84,7 @@
                    Margin="15,475,15,135">
         </TextBlock>
 
-        <Button Content="Search User"
+        <Button Content="Search Record"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 FontSize="15" Margin="0,0,0,80"

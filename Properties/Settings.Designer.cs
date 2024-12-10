@@ -26,8 +26,9 @@ namespace DPiddyLibrary.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=DPiddyLibrary;Integrated Security=True;TrustServerC" +
-            "ertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1;Initial Catalog=DPiddyLibrary;Persist Security Info=True;Us" +
+            "er ID=sqlserver;Password=dpiddylibrary;Pooling=False;MultipleActiveResultSets=Fa" +
+            "lse;Encrypt=True;TrustServerCertificate=True")]
         public string DPiddyLibraryConnectionString {
             get {
                 return ((string)(this["DPiddyLibraryConnectionString"]));

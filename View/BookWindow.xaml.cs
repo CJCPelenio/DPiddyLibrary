@@ -18,7 +18,7 @@ namespace DPiddyLibrary.View
             GetBooks();
         }
 
-        private readonly SqlConnection con = new SqlConnection("Data Source=.;Initial Catalog=DPiddyLibrary;Integrated Security=True;TrustServerCertificate=True");
+        private readonly SqlConnection con = new SqlConnection("Data Source=127.0.0.1;Initial Catalog=DPiddyLibrary;Persist Security Info=True;User ID=sqlserver;Password=dpiddylibrary;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True");
 
         private void GetBooks()
         {

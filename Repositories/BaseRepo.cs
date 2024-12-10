@@ -7,7 +7,7 @@ namespace DPiddyLibrary.Repositories
         private readonly string _connectionString;
         public BaseRepo()
         {
-            _connectionString = "Data Source=.;Initial Catalog=DPiddyLibrary;Integrated Security=True;TrustServerCertificate=True";
+            _connectionString = "Data Source=127.0.0.1;Initial Catalog=DPiddyLibrary;Persist Security Info=True;User ID=sqlserver;Password=dpiddylibrary;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True";
         }
         protected SqlConnection GetConnection()
         {
