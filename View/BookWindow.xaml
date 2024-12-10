@@ -1,0 +1,256 @@
+﻿<UserControl x:Class="DPiddyLibrary.View.BookWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DPiddyLibrary.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="651" d:DesignWidth="1290">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="290"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#3a434c"
+                BorderBrush="#ccbb00"
+                BorderThickness="2"
+                CornerRadius="0,0,0,2">
+        </Border>
+
+        <GroupBox Content="Book Information"
+                  Foreground="White"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Height="526" 
+                  Width="270"
+                  BorderThickness="0" 
+                  Margin="0,10,0,0"
+                  FontWeight="Light">
+        </GroupBox>
+
+        <Label Content="Book Code"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,35,0,0"
+               FontSize="15">
+        </Label>
+
+        <TextBox HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 Height="25" 
+                 Width="260" 
+                 Margin="0,65,0,0"
+                 TextWrapping="Wrap"
+                 x:Name="txt_BookCode"
+                 IsReadOnly="True"
+                 Background="DimGray"
+                 Foreground="White"
+                 Cursor="Arrow"
+                 Text="{Binding SelectedItem.BookCode, Mode=OneWay, ElementName=BookDataGrid}">
+        </TextBox>
+
+        <Label Content="Title"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,95,0,0"
+               FontSize="15"/>
+
+        <TextBox HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Top"
+                 Height="70" 
+                 Width="260" 
+                 Margin="0,125,0,0"
+                 TextWrapping="Wrap"
+                 x:Name="txt_Title"
+                 Text="{Binding SelectedItem.Title, Mode=OneWay, ElementName=BookDataGrid}">
+        </TextBox>
+
+        <Label Content="ISBN"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,200,0,0"
+               FontSize="15">
+        </Label>
+
+        <TextBox HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 Height="25" 
+                 Width="260" 
+                 Margin="0,230,0,0"
+                 TextWrapping="Wrap"
+                 x:Name="txt_ISBN"
+                 Text="{Binding SelectedItem.ISBN, Mode=OneWay, ElementName=BookDataGrid}">
+        </TextBox>
+
+        <Label Content="Author"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,260,0,0"
+               FontSize="15">
+        </Label>
+
+        <TextBox HorizontalAlignment="Center"
+                 VerticalAlignment="Top" 
+                 VerticalContentAlignment="Center"
+                 Height="25" 
+                 Width="260" 
+                 Margin="0,290,0,0"
+                 TextWrapping="Wrap"
+                 x:Name="txt_Author"
+                 Text="{Binding SelectedItem.Author, Mode=OneWay, ElementName=BookDataGrid}">
+        </TextBox>
+
+        <Label Content="Publisher"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,320,0,0"
+               FontSize="15">
+        </Label>
+
+        <TextBox HorizontalAlignment="Center"
+                  VerticalAlignment="Top" 
+                  VerticalContentAlignment="Center"
+                  Height="25" 
+                  Width="260"
+                  x:Name="txt_Publisher"
+                  Text="{Binding SelectedItem.Publisher, Mode=OneWay, ElementName=BookDataGrid}" Margin="0,350,0,0"/>
+
+        <Label Content="Year Published"
+                        Foreground="White"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="15,380,0,0"
+                        FontSize="15"/>
+
+        <TextBox HorizontalAlignment="Center"
+                 VerticalAlignment="Top" 
+                 VerticalContentAlignment="Center"
+                 Height="25" 
+                 Width="260" 
+                 Margin="0,410,0,0"
+                 TextWrapping="Wrap"
+                 x:Name="txt_YearPublished"
+                 Text="{Binding SelectedItem.YearPublished, Mode=OneWay, ElementName=BookDataGrid}">
+        </TextBox>
+
+        <TextBlock Text="Please ensure that all fields are populated. The Book Code should be empty to add a book."
+                   x:Name="AddErrorMessage"
+                   Height="58" 
+                   Width="260"
+                   Foreground="OrangeRed"
+                   FontSize="14"
+                   FontWeight="Thin"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Cursor="Help"
+                   Margin="15,0,15,135">
+        </TextBlock>
+
+        <Button Content="Add Book"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="15" Margin="15,0,0,80"
+                Height="30"
+                Width="120"
+                x:Name="btnAdd"
+                Click="btnAdd_Click">
+        </Button>
+
+        <Button Content="Edit Book"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="15" Margin="155,0,0,80"
+                Height="30"
+                Width="120"
+                x:Name="btnEdit"
+                Click="btnEdit_Click">
+        </Button>
+
+        <Button Content="Delete Book"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="15" Margin="15,0,0,30"
+                Height="30"
+                Width="120"
+                Foreground="Red"
+                x:Name="btnDelete"
+                Click="btnDelete_Click">
+        </Button>
+
+        <Button Content="Clear All"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="15" Margin="155,0,0,30"
+                Height="30"
+                Width="120"
+                Foreground="White"
+                Background="Firebrick"
+                x:Name="btnClear"
+                Click="btnClear_Click">
+        </Button>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Margin="5,0,0,0"
+                    Background="#3a434c"
+                    BorderBrush="#ccbb00"
+                    BorderThickness="2"
+                    CornerRadius="0,0,2,0">
+
+                <DataGrid HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            x:Name="BookDataGrid"
+                            AutoGenerateColumns="False"
+                            GridLinesVisibility="All"
+                            HeadersVisibility="Column"
+                            Background="#3a434c"
+                            RowBackground="AntiqueWhite"
+                            AlternatingRowBackground="Khaki"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            IsReadOnly="True"
+                            AreRowDetailsFrozen="True"
+                            CanUserResizeColumns="False"
+                            CanUserReorderColumns="False"
+                            VerticalScrollBarVisibility="Auto"
+                            HorizontalScrollBarVisibility="Auto"
+                            SelectionMode="Extended"
+                            x:FieldModifier="public">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Book Code"
+                                                Binding="{Binding BookCode}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="Title"
+                                                Binding="{Binding Title}"
+                                                Width="450"/>
+                        <DataGridTextColumn Header="ISBN"
+                                                Binding="{Binding ISBN}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="Author"
+                                                Binding="{Binding Author}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="Publisher"
+                                                Binding="{Binding Publisher}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="Year Published"
+                                                Binding="{Binding YearPublished}"
+                                                Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

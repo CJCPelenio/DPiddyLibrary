@@ -1,0 +1,246 @@
+﻿<UserControl x:Class="DPiddyLibrary.View.BorRetWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DPiddyLibrary.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="651" d:DesignWidth="1290">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="290"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#3a434c"
+                BorderBrush="#ccbb00"
+                BorderThickness="2"
+                CornerRadius="0,0,0,2">
+        </Border>
+
+        <GroupBox Content="Borrow | Return Information"
+                  Foreground="White"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  Height="526" 
+                  Width="270"
+                  BorderThickness="0" 
+                  Margin="0,10,0,0"
+                  FontWeight="Light"/>
+
+        <Label Content="Reference Number"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,35,0,0"
+               FontSize="15">
+        </Label>
+
+        <TextBox HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 Height="25" 
+                 Width="260" 
+                 Margin="0,65,0,0"
+                 TextWrapping="Wrap"
+                 x:Name="txt_RefNum"
+                 IsReadOnly="True"
+                 Background="DimGray"
+                 Foreground="White"
+                 Cursor="Arrow"
+                 Text="{Binding SelectedItem.ReferenceNum, Mode=OneWay, ElementName=BorRetDataGrid}">
+        </TextBox>
+
+        <Label Content="User ID"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,95,0,0"
+               FontSize="15"/>
+
+        <TextBox HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 Height="25" 
+                 Width="260" 
+                 Margin="0,125,0,0"
+                 TextWrapping="Wrap"
+                 x:Name="txt_UserID"
+                 Text="{Binding SelectedItem.UserID, Mode=OneWay, ElementName=BorRetDataGrid}">
+        </TextBox>
+
+        <Label Content="Book Code"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,155,0,0"
+               FontSize="15">
+        </Label>
+
+        <TextBox HorizontalAlignment="Center"
+                 VerticalAlignment="Top"
+                 VerticalContentAlignment="Center"
+                 Height="25" 
+                 Width="260" 
+                 Margin="0,185,0,0"
+                 TextWrapping="Wrap"
+                 x:Name="txt_BookCode"
+                 Text="{Binding SelectedItem.BookCode, Mode=OneWay, ElementName=BorRetDataGrid}">
+        </TextBox>
+
+        <Label Content="Staff ID"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,215,0,0"
+               FontSize="15">
+        </Label>
+
+        <TextBox HorizontalAlignment="Center"
+                 VerticalAlignment="Top" 
+                 VerticalContentAlignment="Center"
+                 Height="25" 
+                 Width="260" 
+                 Margin="0,245,0,0"
+                 TextWrapping="Wrap"
+                 x:Name="txt_StaffID"
+                 Text="{Binding SelectedItem.StaffID, Mode=OneWay, ElementName=BorRetDataGrid}">
+        </TextBox>
+
+        <Label Content="Return Status"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="15,275,0,0"
+               FontSize="15">
+        </Label>
+
+        <ComboBox HorizontalAlignment="Center"
+                  VerticalAlignment="Top" 
+                  VerticalContentAlignment="Center"
+                  Height="25" 
+                  Width="260" 
+                  Margin="0,305,0,0"
+                  x:Name="combo_ReturnStatus"
+                  Text="{Binding SelectedItem.ReturnStatus, Mode=OneWay, ElementName=BorRetDataGrid}">
+            <ComboBox.Items>
+                <ComboBoxItem Content="PENDING"/>
+                <ComboBoxItem Content="RETURNED"/>
+            </ComboBox.Items>
+        </ComboBox>
+
+        <TextBlock Text="Please ensure that all fields are populated. The Reference Number should be empty to add an entry."
+                   x:Name="AddErrorMessage"
+                   Height="58" 
+                   Width="260"
+                   Foreground="OrangeRed"
+                   FontSize="14"
+                   FontWeight="Thin"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Cursor="Help"
+                   Margin="15,0,15,135">
+        </TextBlock>
+
+        <Button Content="Add Entry"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="15" Margin="15,0,0,80"
+                Height="30"
+                Width="120"
+                x:Name="btnAdd"
+                Click="btnAdd_Click">
+        </Button>
+
+        <Button Content="Edit Entry"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="15" Margin="155,0,0,80"
+                Height="30"
+                Width="120"
+                x:Name="btnEdit"
+                Click="btnEdit_Click">
+        </Button>
+
+        <Button Content="Delete Entry"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="15" Margin="15,0,0,30"
+                Height="30"
+                Width="120"
+                Foreground="Red"
+                x:Name="btnDelete"
+                Click="btnDelete_Click">
+        </Button>
+
+        <Button Content="Clear All"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                FontSize="15" Margin="155,0,0,30"
+                Height="30"
+                Width="120"
+                Foreground="White"
+                Background="Firebrick"
+                x:Name="btnClear"
+                Click="btnClear_Click">
+        </Button>
+
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Margin="5,0,0,0"
+                    Background="#3a434c"
+                    BorderBrush="#ccbb00"
+                    BorderThickness="2"
+                    CornerRadius="0,0,2,0">
+
+                <DataGrid HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            x:Name="BorRetDataGrid"
+                            AutoGenerateColumns="False"
+                            GridLinesVisibility="All"
+                            HeadersVisibility="Column"
+                            Background="#3a434c"
+                            RowBackground="AntiqueWhite"
+                            AlternatingRowBackground="Khaki"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            IsReadOnly="True"
+                            AreRowDetailsFrozen="True"
+                            CanUserResizeColumns="False"
+                            CanUserReorderColumns="False"
+                            VerticalScrollBarVisibility="Auto"
+                            HorizontalScrollBarVisibility="Auto"
+                            SelectionMode="Extended"
+                            x:FieldModifier="public">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Reference Number"
+                                                Binding="{Binding ReferenceNum}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="User ID"
+                                                Binding="{Binding UserID}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="Book Code"
+                                                Binding="{Binding BookCode}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="Staff ID"
+                                                Binding="{Binding StaffID}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="Return Status"
+                                                Binding="{Binding ReturnStatus}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="Borrow Date"
+                                                Binding="{Binding DateOfBorrow, StringFormat='d'}"
+                                                Width="*"/>
+                        <DataGridTextColumn Header="Return Date"
+                                                Binding="{Binding DateOfReturn, StringFormat='d'}"
+                                                Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
