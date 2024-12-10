@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DPiddyLibrary.View
 {
@@ -73,13 +64,13 @@ namespace DPiddyLibrary.View
                 {
                     if (ex.Number == 547) // Foreign key error
                     {
-                        System.Windows.MessageBox.Show("Sorry, the entered UserID/BookCode/StaffID doesn't exist in the database. Please make sure to double check for any mistypes in your entries.", 
+                        System.Windows.MessageBox.Show("Sorry, the entered UserID/BookCode/StaffID doesn't exist in the database. Please make sure to double check for any mistypes in your entries.",
                                                        "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
                         con.Close();
                     }
                     else
                     {
-                        System.Windows.MessageBox.Show("An error occurred while adding the record: " + ex.Message, 
+                        System.Windows.MessageBox.Show("An error occurred while adding the record: " + ex.Message,
                                                        "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
                         con.Close();
                     }

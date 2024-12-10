@@ -20,14 +20,14 @@ namespace DPiddyLibrary.ViewModel
         private ILoginRepo loginRepo;
 
         //Properties
-        public string Username 
-            { get => _username; set { _username = value; OnPropertyChanged(nameof(Username)); } }
-        public SecureString Password 
-            { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
-        public string ErrorMessage 
-            { get => _errorMessage; set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); } }
-        public bool IsViewVisible 
-            { get => _isViewVisible; set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
+        public string Username
+        { get => _username; set { _username = value; OnPropertyChanged(nameof(Username)); } }
+        public SecureString Password
+        { get => _password; set { _password = value; OnPropertyChanged(nameof(Password)); } }
+        public string ErrorMessage
+        { get => _errorMessage; set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage)); } }
+        public bool IsViewVisible
+        { get => _isViewVisible; set { _isViewVisible = value; OnPropertyChanged(nameof(IsViewVisible)); } }
 
         //-> Commands
         public ICommand LoginCommand { get; }
@@ -58,7 +58,7 @@ namespace DPiddyLibrary.ViewModel
                     new GenericIdentity(Username), null);
                 IsViewVisible = false;
             }
-            else 
+            else
             {
                 ErrorMessage = "Invalid Username or Password!";
                 Task.Delay(2500);

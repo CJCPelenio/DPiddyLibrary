@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DPiddyLibrary.ViewModel
 {
     public class CommandViewModel : ICommand
     {
-        
+
         //Fields
         private readonly Action<object> _executeAction;
         private readonly Predicate<object> _canExecuteAction;

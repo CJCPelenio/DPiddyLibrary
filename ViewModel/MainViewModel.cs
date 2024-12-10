@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using DPiddyLibrary.Model;
+﻿using System.Windows.Input;
 
 namespace DPiddyLibrary.ViewModel
 {
@@ -15,8 +7,8 @@ namespace DPiddyLibrary.ViewModel
         //Fields
         private BaseViewModel _currentChildView;
 
-        public BaseViewModel CurrentChildView 
-        { 
+        public BaseViewModel CurrentChildView
+        {
             get
             {
                 return _currentChildView;
@@ -37,7 +29,7 @@ namespace DPiddyLibrary.ViewModel
         public ICommand ShowBookViewCommand { get; }
         public ICommand ShowStaffViewCommand { get; }
 
-        public MainViewModel() 
+        public MainViewModel()
         {
             //Init
             ShowLibUserViewCommand = new CommandViewModel(ExecuteLibUserViewCommand);
